@@ -1,0 +1,19 @@
+---
+ - name: Copy files
+   hosts: all
+   gather_facts: False
+   become: true
+
+   vars:
+     ansible_user: centos
+     region: eu-central-1
+     keypair: beegfs # pem file name
+
+   tasks:
+
+
+     - name: Copy files
+       ansible.builtin.copy:
+         src: /home/admin/test/roles/provision/files/del_part.sh
+         dest: /usr/local/bin/del_part.sh
+

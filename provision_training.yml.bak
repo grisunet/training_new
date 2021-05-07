@@ -1,0 +1,93 @@
+---
+ - name: Create User
+   hosts: all
+   gather_facts: False
+   become: true
+
+   vars:
+     ansible_user: centos
+     region: eu-central-1
+     keypair: beegfs # pem file name
+
+   tasks:
+
+     - name: "Ensure Group Training exists"
+       group:
+         name: training
+         state: present
+         gid: 1002
+
+     - name: "Add Training User"
+       user:
+         name: "training"
+         shell: /bin/bash
+         groups: training
+     
+     - name: Adduser training to sudoers filea
+       lineinfile:
+         path: /etc/sudoers
+         regexp: '^training'
+         line: 'training ALL=(ALL) NOPASSWD: ALL'
+         validate: 'visudo -cf %s'
+
+     - name: Set Authetication for user training to password 
+       lineinfile:
+         dest: /etc/ssh/sshd_config
+         line:  '{{ item }}'
+       with_items:
+         - 'Match User training'
+         - '    PasswordAuthentication yes'
+
+     - name: Set proxy for yum 
+       lineinfile:
+         dest: /etc/yum.conf
+         line:  '{{ item }}'
+       with_items:
+         - 'proxy=http://172.31.28.39:8888'
+
+     - name: Add hosts
+       lineinfile:
+         dest: /etc/hosts
+         line: '{{ item }}'
+       with_items:
+         - '172.31.4.135 bee-1-1'
+         - '172.31.4.65  bee-1-2'
+         - '172.31.4.32  bee-1-3'
+         - '172.31.4.123 bee-1-4'
+         - '172.31.4.21  bee-2-1'
+         - '172.31.4.67  bee-2-2'
+         - '172.31.4.127 bee-2-3'
+         - '172.31.4.78  bee-2-4'
+         - '172.31.4.54  bee-3-1'
+         - '172.31.4.30  bee-3-2'
+         - '172.31.4.44  bee-3-3'
+         - '172.31.4.25  bee-3-4'
+         - '172.31.4.181 bee-4-1'
+         - '172.31.4.168 bee-4-2'
+         - '172.31.4.113 bee-4-3'
+         - '172.31.4.225 bee-4-4'
+         - '172.31.4.94  bee-5-1'
+         - '172.31.4.203 bee-5-2'
+         - '172.31.4.7   bee-5-3'
+         - '172.31.4.187 bee-5-4'
+         - '172.31.4.208 bee-6-1'
+         - '172.31.4.198 bee-6-2'
+         - '172.31.4.22  bee-6-3'
+         - '172.31.4.241 bee-6-4'
+         - '172.31.4.24  bee-7-1'
+         - '172.31.4.165 bee-7-2'
+         - '172.31.4.177 bee-7-3'
+         - '172.31.4.218 bee-7-4' 
+         - '172.31.28.39 jump'
+
+     - name: Restart service sshd on centos, in all cases, also issue daemon-reload to pick up config changes
+       ansible.builtin.systemd:
+         state: restarted
+         daemon_reload: yes
+         name: sshd
+
+     - name: change training user password
+       user:
+         name: training
+         update_password: always
+         password: "{{ newpassword|password_hash('sha512') }}"

@@ -1,0 +1,55 @@
+    1  sudo bash
+    2  exit
+    3  getent passwd
+    4  exit
+    5  cat /etc/hosts
+    6  exit
+    7  cat /etc/hosts
+    8  ssh bb_1-2
+    9  ssh bee_1-2
+   10  exit
+   11  cat /etc/ssh/sshd_config 
+   12  sudo cat /etc/ssh/sshd_config 
+   13  sudo bash
+   14  exit
+   15  sudo bash
+   16  ssh training@bee_1-1
+   17  exit
+   18  sudo bash
+   19  exit
+   20  sudo bash
+   21  exit
+   22  sudo bash
+   23  exit
+   24  sudo bash
+   25  exit
+   26  sudo bash
+   27  exit
+   28  sudo bash
+   29  exit
+   30  sudo bash
+   31  exit
+   32  less /etc/yum.conf 
+   33  exit
+   34  less /usr/local/bin/del_part.sh 
+   35* systemctl tinyproxy
+   36  exit
+   37  sudo bash
+   38  exit
+   39  top
+   40  exit
+   41  sudo bash
+   42  exit
+   43  sudo bash
+   44  exit
+   45  sudo bash
+   46  exit
+   47  sudo bash
+   48  exit
+   49  sudo bash
+   50  exit
+   51  sudo bash
+   52  exit
+   53  sudo bash
+   54  exit
+   55  history > /home/centos/history2.txt

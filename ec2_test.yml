@@ -1,0 +1,21 @@
+- name: Gather and print info about ec2 instances
+  hosts: localhost
+
+  vars:
+      region: eu-central-1
+  
+  tasks:
+
+    - name: Gather info
+      ec2_instance_info:
+         region: "{{ region }}"
+         filters:
+            "tag:Name": "bee-*"
+            instance-state-name: ["running"]
+      register: ec2_node_info
+
+    - name: Print info 
+      ansible.builtin.debug:
+         msg: "{{ item.tags.Name }} {{ item.instance_id }}"
+      loop: "{{ ec2_node_info.instances }}"
+      when: "item.tags.Name in groups[group]"

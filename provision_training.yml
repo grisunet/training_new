@@ -1,0 +1,82 @@
+---
+ - name: Create User
+   hosts: "{{ group }}"
+   gather_facts: False
+   become: true
+
+   vars:
+     ansible_user: centos
+     region: eu-central-1
+     keypair: beegfs # pem file name
+
+   tasks:
+     - name: "Ensure Group Training exists"
+       group:
+         name: training
+         state: present
+         gid: 1002
+
+     - name: "Add Training User"
+       user:
+         name: "training"
+         shell: /bin/bash
+         groups: training
+     
+     - name: Adduser training to sudoers filea
+       lineinfile:
+         path: /etc/sudoers
+         regexp: '^training'
+         line: 'training ALL=(ALL) NOPASSWD: ALL'
+         validate: 'visudo -cf %s'
+
+     - name: Set Authetication for user training to password 
+       lineinfile:
+         dest: /etc/ssh/sshd_config
+         line:  '{{ item }}'
+       with_items:
+         - 'Match User training'
+         - '    PasswordAuthentication yes'
+
+     - name: Set proxy for yum 
+       lineinfile:
+         dest: /etc/yum.conf
+         line:  '{{ item }}'
+       with_items:
+         - 'proxy=http://172.31.28.39:8888'
+
+     - name: Add hosts
+       lineinfile:
+         dest: /etc/hosts
+         line: "{{ hostvars[item].ip }} {{ item }}"
+       with_items: "{{ groups['all'] }}"
+
+     - name: Restart service sshd on centos, in all cases, also issue daemon-reload to pick up config changes
+       ansible.builtin.systemd:
+         state: restarted
+         daemon_reload: yes
+         name: sshd
+
+     - name: change training user password
+       user:
+         name: training
+         update_password: always
+         password: "{{ newpassword|password_hash('sha512') }}"
+
+     - name: Mount repo via NFS
+       ansible.posix.mount:
+         src: jump:/beehive_repo
+         path: /beehive_repo
+         opts: ro,hard,intr
+         state: mounted
+         fstype: nfs  
+
+     - name: Remove remote repos
+       shell: rm /etc/yum.repos.d/*.repo
+
+     - name: Copy repo file
+       ansible.builtin.copy:
+         src: /beehive_repo/local.repo
+         dest: /etc/yum.repos.d
+
+
+       

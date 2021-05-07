@@ -1,0 +1,11 @@
+---
+ - name: Print
+   hosts: localhost
+   gather_facts: False
+   become: true
+
+   tasks:
+     - name: Show all the hosts in the inventory
+       ansible.builtin.debug:
+         msg: "{{ hostvars[item].ip }}"
+       loop: "{{ groups[group] }}"

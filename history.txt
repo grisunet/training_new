@@ -1,0 +1,548 @@
+    1  vi /etc/ssh/sshd_config 
+    2  hostname
+    3  cat /etc/passwd
+    4  exit
+    5  exit
+    6  vi /etc/ssh/sshd_config 
+    7  systemctl restart sshd
+    8  systemctl status sshd
+    9  exit
+   10  fdisk -l
+   11  cfdisk /dev/nvme1n1
+   12  exit
+   13  ToSuccess!
+   14  exit
+   15  fdisk -l
+   16  cfdisk /dev/nvme1n1
+   17  cfdisk /dev/nvme1n1
+   18  ls
+   19  exit
+   20  vi /etc/hostname 
+   21  reboot
+   22  apt install parted
+   23  yum install parted
+   24  exit
+   25  vi /etc/ssh/sshd_config 
+   26  systemctl restart sshd
+   27  systemctl status sshd
+   28  exit
+   29  cd /etc/
+   30  mkdir beegfs
+   31  cd beegfs/
+   32  ls
+   33  exit
+   34  exit
+   35  chown admin:admin /etc/beegfs/
+   36  getent passwd
+   37  rm /etc/beegfs/
+   38  rm -r /etc/beegfs/
+   39  exit
+   40  ls /etc/b*
+   41  ls /etc/b*
+   42  cd /etc/ssh/sshd_config 
+   43  vi /etc/ssh/sshd_config 
+   44  exit
+   45  yum search telnet
+   46  cat /etc/hosts
+   47  exit
+   48  cat /etc/hosts 
+   49  exit
+   50  vi /etc/ssh/sshd_config 
+   51  exit
+   52  systemctl  restart sshd
+   53  systemctl  status sshd
+   54  exit
+   55  ping jumpserver
+   56  ping 172.31.28.39
+   57  ip a
+   58  ssh 172.31.28.39
+   59  cd /etc/yum.repos.d/
+   60  ls
+   61  yum repolist
+   62  yum update
+   63  ls
+   64  vi CentOS-Base.repo 
+   65  cd
+   66  mount -t nfs 172.31.28.39:/beehive_repo /mnt
+   67  firewall-cmd --list-all
+   68  systemctl status firewalld
+   69  mount -t nfs 172.31.28.39:/beehive_repo /mnt
+   70  mount
+   71  ls /mnt
+   72  cd /
+   73  vi /etc/fstab
+   74  umount /mnt
+   75  mount -a
+   76  mkdir beehive_repo
+   77  mount -a
+   78  mount
+   79  cd /etc/yum.repos.d/
+   80  ls
+   81  mkdir bkp
+   82  mv *.repo bkp/
+   83  ls
+   84  vi local.repo
+   85  yum repolist
+   86  yum makecache
+   87  yum search beegfs
+   88  yum install beegfs-client
+   89  exit
+   90  yum install beegfs-client
+   91  uname -a
+   92  ls /beehive_repo/
+   93  cd /etc/yum.repos.d/
+   94  ls
+   95  cp local.repo /beehive_repo/
+   96  exit
+   97  yum search htop
+   98  mount
+   99  yum search htop
+  100  top
+  101  uname -a
+  102  exit
+  103  vi /etc/systemd/system/del_part.service
+  104  systemctl enable del_part
+  105  systemctl status del_part
+  106  exit
+  107  vi /usr/local/bin/del_part.sh
+  108  chmod +x /usr/local/bin/del_part.sh
+  109  exit
+  110  vi /etc/yum.conf 
+  111  vi /etc/yum.repos.d/
+  112  vi /etc/yum.repos.d/local.repo 
+  113  vi /etc/yum.repos.d/local.repo 
+  114  exit
+  115  cd /usr/local/bin/
+  116  ls
+  117  del_part.sh 
+  118  exit
+  119  cd /var/log
+  120  ls
+  121  less beegfs-client.log
+  122  ping bee-1-1
+  123  systemctl status firewalld
+  124  systemctl status firewall
+  125  firewall-cmd --list-all
+  126  yum search firewall
+  127  systemctl install firewalld
+  128  yum install firewalld
+  129  systemctl status firewalld
+  130  systemctl start firewalld
+  131  systemctl status firewalld
+  132  firewall-cmd --list-all
+  133  systemctl stop firewalld
+  134  firewall-cmd --list-all
+  135  systemctl start beegfs-helperd
+  136  systemctl start beegfs-client
+  137  journalctl -xe
+  138  systemctl status beegfs-mgmtd
+  139  mount
+  140  cat /proc/partitions 
+  141  mkfs.xfs /dev/nvme1n1p1
+  142  cd
+  143  mkdir /BeeGFS
+  144  mount /dev/nvme1n1p1 /BeeGFS
+  145  cd /BeeGFS/
+  146  ls
+  147  cd management/
+  148  ls
+  149  cd ..
+  150  ls
+  151  cd /
+  152  ls
+  153  mount /dev/nvme2n1 /storage/
+  154  cd /etc/beegfs/
+  155  ls
+  156  less beegfs-mgmtd.conf 
+  157  systemctl start beegfs-mgmtd
+  158  systemctl start beegfs-meta.conf 
+  159  systemctl start beegfs-metadata
+  160  systemctl start beegfs-meta
+  161  systemctl start beegfs-storage
+  162  systemctl status beegfs-helperd
+  163  systemctl status beegfs-client
+  164  setenforce permissive
+  165  systemctl start beegfs-client
+  166  mount
+  167  beegfs-df
+  168  mount
+  169  systemctl stop beegfs-client
+  170  systemctl stop beegfs-helperd
+  171  systemctl stop beegfs-storage
+  172  ls
+  173  df -h
+  174  umount /BeeGFS/
+  175  pwd
+  176  cd /
+  177  systemctl stop beegfs-meta
+  178  systemctl stop beegfs-mgmtd
+  179  umount /BeeGFS/
+  180  umount /storage/
+  181  ls
+  182  cd /usr/local/bin/
+  183  ls
+  184  vi del_part.sh 
+  185  ll
+  186  del_part.sh 
+  187  cat /proc/partitions 
+  188  ls
+  189  cd /
+  190  rpm -qa | grep bee
+  191  exit
+  192  setenforce permissive
+  193  systemctl stop firewalld
+  194  mount /dev/nvme1n1 /BeeGFS/
+  195  mount /dev/nvme2n1 /storage
+  196  systemctl start beegfs-mgmtd
+  197  systemctl start beegfs-meta
+  198  systemctl start beegfs-storage
+  199  exit
+  200  less /var/log/messages
+  201  tail -f
+  202  tail -f /var/log/messages
+  203  ps -ef
+  204  ls /mnt/
+  205  ls /mnt/beegfs/
+  206  ls -la /mnt/beegfs/
+  207  ls -la /mnt/
+  208  df -h
+  209  top
+  210  exit
+  211  ps -ef | grep beegfs
+  212  tail -f /var/log/beegfs-mgmtd.log
+  213  systemctl start beegfs-helperd
+  214  systemctl start beegfs-client
+  215  mount
+  216  df -h
+  217  ping bee-1-2
+  218  exit
+  219  beegfs-df
+  220  beegfs-check-servers
+  221  beegfs-net
+  222  exit
+  223  passwd
+  224  vi /etc/ssh/sshd_config 
+  225  exit
+  226  vi /etc/ssh/sshd_config 
+  227  exit
+  228  cd /var/log/
+  229  less beegfs-mgmtd.log
+  230  beegfs-df
+  231  systemctl status firewalld
+  232  exit
+  233  vi /etc/ssh/sshd_config 
+  234  exit
+  235  mkfs.xfs /dev/nvme1n1
+  236  ls /
+  237  mount /dev/nvme1n1 /BeeGFS/
+  238  mount /dev/nvme2n1 /storage
+  239  cd /BeeGFS/
+  240  ls
+  241  cd management/
+  242  ls
+  243  cd ../metadata/
+  244  ls
+  245  cd /etc/beegfs/
+  246  ls
+  247  vi beegfs-client-autobuild.conf 
+  248  systemctl status firewalld
+  249  systemctl stop firewalld
+  250  setenforce permissive
+  251  systemctl start beegfs-mgmtd
+  252  systemctl start beegfs-meta
+  253  systemctl start beegfs-storage
+  254  systemctl start beegfs-helperd
+  255  systemctl start beegfs-client
+  256  journalctl -xe
+  257  exit
+  258  ssh bee-1-2
+  259  vi /etc/ssh/sshd_config 
+  260  systemctl restart sshd
+  261  exit
+  262  beegfs-df
+  263  systemctl status beegfs-helperd
+  264  systemctl status beegfs-client
+  265  systemctl start beegfs-client
+  266  mount
+  267  df -h
+  268  exit
+  269  ls
+  270  beegfs-df
+  271  cd /etc/beegfs/
+  272  ls
+  273  less beegfs-client-autobuild.conf
+  274  beegfs-df
+  275  df -h
+  276  cd /etc/ssh/
+  277  vi sshd_config
+  278  cd
+  279  cd .ssh
+  280  pwd
+  281  ls
+  282  ssh-keygen -t rsa -N ""
+  283  ls
+  284  cat id_rsa.pub >> authorized_keys 
+  285  ssh-copy-id bee-1-2
+  286  ssh-copy-id bee-1-3
+  287  ssh-copy-id bee-1-4
+  288  cd
+  289  ssh bee-1-3
+  290  yum install beeond
+  291  ssh bee-1-1
+  292  ssh bee-1-2
+  293  ssh bee-1-3
+  294  ssh bee-1-4
+  295  ssh bee-1-3
+  296  ssh bee-1-2
+  297  less /etc/beegfs/beegfs-client-autobuild.conf
+  298  vi nodefile
+  299  beeond start -n /root/nodefile -d /BeeGFS/beeond -c /media/beeond -p 500
+  300  mount
+  301  df -h
+  302  exit
+  303  fdisk -l
+  304  cd /etc/rc0.d/
+  305  ls
+  306  ls -la
+  307  exit
+  308  exit
+  309  fdisk -l
+  310  vi /usr/local/bin/del_part.sh 
+  311  /usr/local/bin/del_part.sh 
+  312  fdisk -l
+  313  cd /etc/b
+  314  systemctl status del_part
+  315  exit
+  316  less /etc/ssh/sshd_config
+  317  cat /proc/partitions 
+  318  cd /
+  319  ls
+  320  mount
+  321  rpm -qa | grep beegfs
+  322  yum search beegfs
+  323  exit
+  324   history
+  325  mount
+  326  yum search beegfsf
+  327  yum search beegfs
+  328  yum -y install beegfs-mgmtd beegfs-helperd beegfs-meta beegfs-storage beegfs-utils
+  329  cat /proc/partitions 
+  330  mkfs.xfs /dev/nvme1n1
+  331  mkfs.xfs /dev/nvme2n1
+  332  ls /
+  333  mount /dev/nvme1n1 /BeeGFS/
+  334  mount /dev/nvme2n1 /storage/
+  335  cd /BeeGFS/
+  336  mkdir management
+  337  mkdir metadata
+  338  systemctl status firewalld
+  339  systemctl stop firewalld
+  340  setenforce permissive
+  341  cd /opt/beegfs/sbin/
+  342  ./beegfs-setup-mgmtd -p /BeeGFS/management/
+  343  systemctl start beegfs-mgmtd
+  344  ./beegfs-setup-meta -p /BeeGFS/metadata -s 1 -m bee-1-1
+  345  systemctl start beegfs-meta
+  346  ./beegfs-setup-storage -p /storage -s 1 -i 101 -m bee-1-1
+  347  systemctl start beegfs-storage 
+  348  cd /etc/beegfs/
+  349  ls
+  350  yum install beegfs-client beegfs-helperd
+  351  ls
+  352  vi beegfs-client-autobuild.conf
+  353  rpm -qa | grep kernel
+  354  cd /opt/beegfs/sbin/
+  355  ./beegfs-setup-client -m bee-1-1
+  356  systemctl start beegfs-helperd
+  357  systemctl start beegfs-client
+  358  systemctl status beegfs-client
+  359  mount
+  360  beegfs-df
+  361  ssh bee-1-2
+  362  beegfs-df
+  363  ssh bee-1-2
+  364  beegfs-df
+  365  cd /etc/beegfs/
+  366  ls
+  367  vi beegfs-mgmtd.conf 
+  368  systemctl restart beegfs-mgmtd
+  369  beegfs-df
+  370  ssh beegfs-1-3
+  371  ssh bee-1-3
+  372  beegfs-df
+  373  ssh bee-1-4
+  374  beegfs-df
+  375  cd /var/log
+  376  ls
+  377  less beegfs-mgmtd.log
+  378  beegfs-net
+  379  beegfs-check-servers
+  380  beegfs-ctl --liststoragepools
+  381  exit
+  382  beegfs-df
+  383  beegfs-check-servers 
+  384  exit
+  385   history
+  386  vi /etc/ssh/sshd_config 
+  387  yum install beeond
+  388  ssh bee-1-2
+  389  ssh bee-1-3
+  390  ssh bee-1-4
+  391  ls
+  392  vi nodefile 
+  393  beeond start -n /root/nodefile -d /BeeGFS/beeond -c /media/beeond -p 500
+  394  beeond stop -n /root/nodefile -d
+  395  beeond start -n /root/nodefile -d /BeeGFS/beeond -c /media/beeond -p 500
+  396  mount
+  397  df -h
+  398  vi /etc/ssh/sshd_config 
+  399  cd .ssh
+  400  cd ..
+  401  df -h
+  402  ps -ef | grep beegfs
+  403  cd /etc/beegfs/
+  404  less beegfs-storage.conf 
+  405  ls
+  406  less beegfs-client-mount-hook.example
+  407  less beegfs-mounts.conf
+  408  vi beegfs-mounts.conf
+  409  cd /etc/default/
+  410  ls
+  411  less beegfs-client 
+  412  cd /
+  413  exit
+  414  ls
+  415  rm -rf /opt/beegfs/
+  416  ls /var/log/bee*
+  417  rm -f /var/log/bee*
+  418  ls /etc
+  419  ssh bee-1-2
+  420  ssh bee-1-3
+  421  ssh bee-1-4
+  422  exit
+  423  yum search beegfs
+  424  cat /proc/partitions 
+  425  mkfs.xfs /dev/nvme1n1
+  426  mkfs.xfs -f /dev/nvme1n1
+  427  mkfs.xfs -f /dev/nvme2n1
+  428  cd /
+  429  ls
+  430  mount /dev/nvme1n1 /BeeGFS/
+  431  cd BeeGFS/
+  432  ls
+  433  mkdir management
+  434  mkdir metadata
+  435  cd /
+  436  mount /dev/nmve2n1 /storage/
+  437  mount /dev/nvme2n1 /storage/
+  438  mount
+  439  yum search beegfs
+  440  setenforce permissive
+  441  systemctl stop firewalld
+  442  yum install beegfs-mgmtd beegfs-client beegfs-helperd beegfs-storage beegfs-meta beegfs-utils
+  443  yum remove beegfs-mgmtd beegfs-client beegfs-helperd beegfs-storage beegfs-meta beegfs-utils
+  444  yum install beegfs-mgmtd beegfs-client beegfs-helperd beegfs-storage beegfs-meta beegfs-utils
+  445  cd /opt/beegfs/sbin
+  446  ls
+  447  ./beegfs-setup-mgmtd -p /BeeGFS/management
+  448  systemctl start beegfs-mgmtd
+  449  ./beegfs-setup-meta -p /BeeGFS/metadata -s 1 -m bee-1-1
+  450  systemctl start beegfs-meta
+  451  ./beegfs-setup-storage -p /storage -s 1 -i 101 -m bee-1-1
+  452  systemctl start beegfs-storage
+  453  ps -ef | grep beegfs
+  454  ./beegfs-setup-client -m bee-1-1
+  455  beegfs-df
+  456  systemctl start beegfs-helperd
+  457  systemctl start beegfs-client
+  458  cd /etc/beegfs/
+  459  ls
+  460  vi beegfs-client-autobuild.conf 
+  461  systemctl start beegfs-client
+  462  mount
+  463  df -h
+  464  exit
+  465  cd /etc/beegfs/
+  466  ls
+  467  vi beegfs-mgmtd.conf
+  468  exit
+  469  w
+  470  vim .bash_history 
+  471  vi .bash_history 
+  472  ls -alh /BeeGFS/
+  473  history > myhist.txt
+  474  vim myhist.txt 
+  475  yum install vim
+  476  beegfs-df
+  477  exit
+  478  yum install beeond
+  479  ssh bee-1-2
+  480  ssh bee-1-3
+  481  ssh bee-1-4
+  482  ls
+  483  less nodefile 
+  484  beeond start -n /root/nodefile -d /BeeGFS/beeond -c /media/beeond -p 500
+  485  beeond stop -n /root/nodefile -d
+  486  beeond start -n /root/nodefile -d /BeeGFS/beeond -c /media/beeond -p 500
+  487  ssh bee-1-4
+  488  beeond stop -n /root/nodefile -d
+  489  beeond start -n /root/nodefile -d /BeeGFS/beeond -c /media/beeond -p 500
+  490  df -h
+  491  exit
+  492  beegfs-df --help
+  493  beegfs-df -p /media/beeond/
+  494  beegfs-check-servers -p /media/beeond/
+  495  beeond --help
+  496  exit
+  497  cat /root/nodefile 
+  498  ls /var/log/
+  499  ls /opt/
+  500  exit
+  501  vi /usr/local/bin/del_part.sh 
+  502  /usr/local/bin/del_part.sh 
+  503  ls /var/log
+  504  vi /usr/local/bin/del_part.sh 
+  505  /usr/local/bin/del_part.sh 
+  506  exit
+  507  del_part.sh 
+  508  exit
+  509  yum search beegfs
+  510  yum install beegfs-mgmtd beegfs-meta beegfs-utils beegfs-client beegfs-helperd beegfs-storage
+  511  cat /proc/partitions 
+  512  mkfs.xfs /dev/nvme1n1 
+  513  mkfs.xfs /dev/nvme2n1 
+  514  ls /
+  515  mount /dev/nvme1n1 /BeeGFS/
+  516  mount /dev/nvme2n1 /storage/
+  517  cd /BeeGFS/
+  518  mkdir management
+  519  mkdir metadata
+  520  systemctl stop firewalld
+  521  setenforce permissive
+  522  cd /opt/beegfs/sbin/
+  523  ls
+  524  ./beegfs-setup-mgmtd -p /BeeGFS/management
+  525  systemctl start beegfs-mgmtd
+  526  less /var/log/beegfs-mgmtd.log 
+  527  ./beegfs-setup-meta -p /BeeGFS/metadata -s 1 -m bee-1-1
+  528  systemctl start beegfs-meta 
+  529  less /var/log/beegfs-mgmtd.log 
+  530  ./beegfs-setup-storage -p /storage -s 1 -i 101 -m bee-1-1
+  531  systemctl start beegfs-storage
+  532  less /var/log/beegfs-mgmtd.log 
+  533  ./beegfs-setup-client -m bee-1-1
+  534  systemctl start beegfs-helperd
+  535  cd /etc/beegfs/
+  536  ls
+  537  vi beegfs-client-autobuild.conf 
+  538  cd /
+  539  systemctl start beegfs-client
+  540  df -h
+  541  beegfs-df
+  542  beegfs-check-servers 
+  543  exit
+  544  history >> /home/admin/history.txt
+  545  history > /home/admin/history.txt
+  546  history |  > /home/admin/history.txt
+  547  touch /home/admin/history.txt
+  548  history >  /home/centos/history.txt
